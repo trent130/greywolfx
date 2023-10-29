@@ -10,19 +10,23 @@ def follow_accounts():
 root = tk.Tk()
 root.title("Instagram Bot")
 
-# Create and configure the frame
-main_frame = tk.Frame(root, padx=20, pady=20)
-main_frame.pack()
+# Create and configure the frame with increased padding for larger screens
+main_frame = tk.Frame(root, padx=40, pady=40)
+main_frame.pack(fill='both', expand=True)  # Adjusting to fill and expand
 
-# Create labels and entry fields with proper grid placements
-label_font = ('Arial', 10)
-entry_font = ('Arial', 10)
+# Create a title label to use additional space
+title_label = tk.Label(main_frame, text="Instagram Bot", font=('Arial', 18, 'bold'))
+title_label.pack()
+
+# Create labels and entry fields with adjusted font sizes for larger screens
+label_font = ('Arial', 12)
+entry_font = ('Arial', 12)
 
 # Username
 username_label = tk.Label(main_frame, text="Username:", font=label_font)
-username_label.grid(row=0, column=0, sticky='w')
+username_label.pack(anchor='w')
 username_entry = tk.Entry(main_frame, font=entry_font)
-username_entry.grid(row=0, column=1)
+username_entry.pack()
 
 # University Acronyms
 university_acronym_label = tk.Label(main_frame, text="Acronym:", font=label_font)
@@ -56,6 +60,6 @@ max_follow_entry.grid(row=5, column=1)
 
 # Button for following accounts
 follow_button = tk.Button(main_frame, text="Follow Accounts", command=follow_accounts, font=label_font, bg="blue", fg="white")
-follow_button.grid(row=6, columnspan=2, pady=10)
+follow_button.pack(pady=20)
 
 root.mainloop()
